@@ -1,0 +1,4 @@
+# Always store text files with LF line endings in the repo, regardless of
+# what OS/editor checks them out — stops Git's noisy CRLF/LF warnings and
+# keeps line endings consistent if this is ever touched from another machine.
+* text=auto eol=lf
