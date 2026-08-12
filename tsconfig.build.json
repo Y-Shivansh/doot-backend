@@ -1,0 +1,12 @@
+{
+  /* This is the one the "build" script actually uses. It extends the base
+     config but restricts compilation to src/ only — prisma.config.ts and
+     other root-level tool config files should never end up in dist/, they're
+     run directly by their own tools (Prisma CLI), not by our compiled app. */
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "include": ["src"]
+}

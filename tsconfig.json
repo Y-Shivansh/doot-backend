@@ -4,8 +4,7 @@
     "lib": ["ES2023"],
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "outDir": "dist",
-    "rootDir": "src",
+    "ignoreDeprecations": "6.0",
 
     "strict": true,
     "esModuleInterop": true,
@@ -14,9 +13,15 @@
     "resolveJsonModule": true,
 
     /* "@/" import alias, same convention as the frontend */
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src"]
+  /* This is the base config — the editor uses this one, so it needs to see
+     every .ts file in the project, including root-level tool config files
+     like prisma.config.ts (that's what "*.config.ts" picks up). It does NOT
+     set outDir/rootDir because it's not the one that actually builds the
+     app — see tsconfig.build.json for that. */
+  "include": ["src", "*.config.ts"]
 }
